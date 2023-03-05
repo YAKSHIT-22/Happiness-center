@@ -6,6 +6,21 @@ import vector from '../assets/Vector.svg';
 
 export default function Header() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const [navState, setNavState] = React.useState(false);
+
+  const onNavScroll = () => {
+    if (window.scrollY > 30) {
+      setNavState(true);
+    } else {
+      setNavState(false);
+    }
+  };
+  React.useEffect(() => {
+    window.addEventListener("scroll", onNavScroll);
+    return () => {
+      window.removeEventListener("scroll", onNavScroll);
+    };
+  }, []);
 //   const lgNav = (
 //     <div className="w-screen h-full flex items-center justify-around flex-row ">
 //       <div className="flex items-center justify-center flex-row mr-10">
@@ -118,7 +133,7 @@ export default function Header() {
 
   return (
     <React.Fragment>
-      <header className="border-b border-[#fb393f]">
+      <header className={`border-b border-[#fb393f] ${navState && "fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-50 bg-white"}`}>
         <nav className="relative px-4 py-4 flex justify-between items-center">
         <NavLink
                 to="/"
@@ -351,7 +366,7 @@ export default function Header() {
             </div>
           </nav>
         </div>
-        <div className="flex items-center justify-center absolute top-0 right-0 z-[-1]">
+        <div className={`flex items-center justify-center absolute top-0 right-0 z-[-1] ${navState && "hidden"}`}>
           <img src={vector} alt="vector color art" className="w-24 h-24" /> 
         </div>
       </header>
