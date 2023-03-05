@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import hero from "../assets/hero.svg";
 import arrow from "../assets/arrow.svg";
 import library from "../assets/library.svg";
@@ -44,7 +44,7 @@ export default function LandingPage() {
       <section className="h-full w-screen flex flex-col items-center justify-center gap-6 relative">
         <div className="flex flex-col-reverse md:flex-row items-center justify-center md:mb-8 md:mt-2 my-0 mb-2 max-w-[90rem]">
           <div className="flex flex-col items-center md:items-start gap-4 md:gap-6 w-full h-full md:w-1/2 justify-center">
-            <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-6 lg:ml-8 xl:ml-12 p-6 sm:p-8 md:p-0 text-center md:text-start mt-2">
+            <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-6 lg:ml-8 xl:ml-12 p-6 sm:p-8 md:p-0 text-center md:text-start mt-2 select-none cursor-default">
               There is only one <span className="text-[#F3A140]">passion</span>,
               the passion for <span className="text-[#EF1C22]">happiness.</span>
             </h1>
@@ -53,8 +53,8 @@ export default function LandingPage() {
               >
             <div className="flex relative flex-row items-center justify-center gap-6  ml-0 md:ml-6 lg:ml-8 xl:ml-12 p-1 mb-1 font-zilla">
              
-              <div className="flex items-center justify-center bg-[#FB393F] w-[12rem] h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
-                <p className="text-sm">Apply Now</p>
+              <div className="flex items-center justify-center bg-[#FB393F] w-[12rem] h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)] hover:scale-[1.05] duration-300 transition ease-in-out">
+                <p className="text-sm select-none">Apply Now</p>
               </div>
               <div className="absolute bottom-[-1.8rem] right-[-2rem] rotate-[16deg] flex items-center justify-center">
                 <img
@@ -76,14 +76,14 @@ export default function LandingPage() {
         </div>
         <div className="flex flex-row items-center justify-center p-6 sm:p-4 md:p-6 xl:p-10 mt-2">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 xl:gap-6 justify-around p-2 xs:p-6 sm:p-0 md:p-4 lg:p-1">
-            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0 hover:scale-[1.025] duration-[400ms]">
               <div className="flex flex-col relative bg-[#F45B49] h-full w-full justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="flex flex-row justify-start items-center  mt-4">
                   <img src={library} alt="arrow next" className="w-12 h-12" />
                 </div>
-                <h1 className="font-bold">Library</h1>
+                <h1 className="font-bold select-none cursor-text">Library</h1>
                 <div className="flex items-center">
-                  <p className="text-sm md:text-base font-zilla">
+                  <p className="text-sm md:text-base font-zilla select-none cursor-text">
                     Any book that helps a child to form a habit of reading, to
                     make reading one of his deep and continuing needs, is good
                     for him. So we have chosen more than 50 books in the
@@ -107,7 +107,7 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0 hover:scale-[1.025] duration-[400ms]">
               <div className="flex flex-col relative bg-[#FCDA69] h-full w-full justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="flex flex-row justify-start items-center  mt-4">
                   <img
@@ -116,9 +116,9 @@ export default function LandingPage() {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="font-bold">Meditation</h1>
+                <h1 className="font-bold select-none cursor-text">Meditation</h1>
                 <div className="flex items-center">
-                  <p className="text-sm md:text-base font-zilla">
+                  <p className="text-sm md:text-base font-zilla select-none cursor-text">
                     Happiness Centre offers the following meditations in the
                     Meditation room:- Mindful Breathing Meditation, Guided
                     Meditation, Silence Meditation. Meditation doesn’t only make
@@ -142,7 +142,7 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="grid-cols-1   relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+            <div className="grid-cols-1   relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0 hover:scale-[1.025] duration-[400ms]">
               <div className="flex flex-col relative h-full w-full bg-[#C6FCDB]  justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="flex flex-row justify-start items-center h-full w-full mt-4">
                   <img
@@ -151,9 +151,9 @@ export default function LandingPage() {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="font-bold">Counseling</h1>
+                <h1 className="font-bold select-none cursor-text">Counseling</h1>
                 <div className="flex items-center">
-                  <p className="text-sm md:text-base font-zilla">
+                  <p className="text-sm md:text-base font-zilla select-none cursor-text">
                     Counselling sessions are being taken by Chief Happiness
                     Officer, Manav Bansal where students get a chance to express
                     themselves. In One-To-One Counselling, a student gets an
@@ -177,14 +177,14 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0 hover:scale-[1.025] duration-[400ms]">
               <div className="flex flex-col relative bg-[#FEC2D9] w-full h-full justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="flex flex-row justify-start items-center h-full w-full mt-4">
                   <img src={speaker} alt="arrow next" className="w-12 h-12" />
                 </div>
-                <h1 className="font-bold">Speaker Session</h1>
+                <h1 className="font-bold select-none cursor-text">Speaker Session</h1>
                 <div className="flex items-center">
-                  <p className="text-sm md:text-base font-zilla">
+                  <p className="text-sm md:text-base font-zilla select-none cursor-text">
                     A motivational speaker has mastered the art of igniting in
                     others the intrinsic drive for growth and change toward a
                     better future. A motivational speaker encourages individuals
@@ -247,7 +247,7 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col items-center md:items-start md:gap-6 w-full h-full md:w-[54%] justify-center mb-4  md:my-8">
               <div className="flex items-center justify-center">
-                <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-2 lg:ml-4 xl:ml-6 p-4 sm:p-6 md:p-2 lg:p-1 text-center md:text-start">
+                <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-2 lg:ml-4 xl:ml-6 p-4 sm:p-6 md:p-2 lg:p-1 text-center md:text-start select-none">
                   A <span className="text-[#F3A140]">smile</span>, is always the
                   best form of{" "}
                   <span className="text-[#EF1C22]">introduction.</span>
@@ -255,7 +255,7 @@ export default function LandingPage() {
               </div>
 
               <div className="flex items-center justify-center font-zilla">
-                <p className="lg:w-[92%] text-xs sm:text-sm md:text-base lg:text-lg  ml-0 md:ml-1 lg:ml-0  p-4 sm:p-6 md:p-2 lg:p-0 text-center md:text-start ">
+                <p className="lg:w-[92%] text-xs sm:text-sm md:text-base lg:text-lg  ml-0 md:ml-1 lg:ml-0  p-4 sm:p-6 md:p-2 lg:p-0 text-center md:text-start select-none">
                   He graduated from BTech(CSE), then pursued LLB, he did MBA in
                   HR .He has an experience of 16 years of HR at companies like
                   Emaar,Max. Lastly he was a director HR at Shoolini University
@@ -266,7 +266,7 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex items-center justify-center font-zilla">
-                <p className="lg:w-[92%] text-xs  sm:text-sm md:text-base lg:text-lg  ml-0 md:ml-1 lg:ml-0 p-4 sm:p-6 md:p-2 lg:p-0 text-center md:text-start ">
+                <p className="lg:w-[92%] text-xs  sm:text-sm md:text-base lg:text-lg  ml-0 md:ml-1 lg:ml-0 p-4 sm:p-6 md:p-2 lg:p-0 text-center md:text-start select-none">
                   Expertise in taking Sessions for elevating Student
                   Inspiration, Motivation, and Development on Different topics
                   like Time Management, Communication Skills, Healthy Lifestyle,
@@ -279,8 +279,8 @@ export default function LandingPage() {
                 to="/team"         
               >
               <div className="flex relative flex-row items-center justify-center gap-6 my-2  ml-0 md:ml-2 lg:ml-6 xl:ml-10 p-1 font-zilla">
-                <div className="flex items-center justify-center bg-[#FCDA69] w-[11rem] h-[2.5rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
-                  <p className="text-xs">MEET THE TEAM</p>
+                <div className="flex items-center justify-center bg-[#FCDA69] w-[11rem] h-[2.5rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)] hover:scale-[1.05] duration-300 transition ease-in-out">
+                  <p className="text-xs select-none">MEET THE TEAM</p>
                 </div>
               </div>
               </NavLink>
@@ -372,14 +372,14 @@ export default function LandingPage() {
             <NavLink
                 to="/events"         
               >
-              <div className="flex items-center justify-center bg-[#FB393F] w-[8rem] h-[2.6rem] md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
+              <div className="flex items-center justify-center bg-[#FB393F] w-[8rem] h-[2.6rem] md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)] hover:scale-[1.05] duration-300 transition ease-in-out">
                 <p className="text-sm">PAST EVENT</p>
               </div>
               </NavLink>
               <NavLink
                 to="/events"         
               >
-              <div className="flex items-center justify-center bg-[#FCDA69]  w-[8rem] h-[2.6rem]  md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
+              <div className="flex items-center justify-center bg-[#FCDA69]  w-[8rem] h-[2.6rem]  md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)] hover:scale-[1.05] duration-300 transition ease-in-out">
                 <p className="text-sm">UPCOMING</p>
               </div>
               </NavLink>
