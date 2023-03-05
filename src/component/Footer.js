@@ -27,9 +27,9 @@ export default function Footer() {
           </NavLink>
           <p className="font-zilla text-xs sm:text-sm flex items-center justify-center flex-wrap text-center select-none">COPYRIGHT @ ALL RIGHTS RESERVED</p>
           <div className="flex items-center justify-center flex-row gap-2">
-            <img src={instagram} alt="instagram" className="w-4 h-4"/>
-            <img src={youtube} alt="youtube" className="w-4 h-4"/>
-            <img src={linkedin} alt="linkedin" className="w-4 h-4"/>
+            <img src={instagram} alt="instagram" className="w-4 h-4 transition-all duration-200 hover:scale-110 cursor-pointer"/>
+            <img src={youtube} alt="youtube" className="w-4 h-4 transition-all duration-200 hover:scale-110 cursor-pointer"/>
+            <img src={linkedin} alt="linkedin" className="w-4 h-4 transition-all duration-200 hover:scale-110 cursor-pointer"/>
           </div>
     </div>
   )
