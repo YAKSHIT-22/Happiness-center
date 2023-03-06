@@ -133,7 +133,7 @@ export default function Header() {
 
   return (
     <React.Fragment>
-      <header className={`border-b border-[#fb393f] ${navState && "fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-50 bg-white"}`}>
+      <header className={`border-b border-[#fb393f] ${navState && "fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-between md:justify-center opacity-100 z-50 bg-white"}`}>
         <nav className="relative px-4 py-4 flex justify-between items-center">
         <NavLink
                 to="/"
