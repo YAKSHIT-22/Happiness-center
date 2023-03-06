@@ -9,7 +9,7 @@ export default function Header() {
   const [navState, setNavState] = React.useState(false);
 
   const onNavScroll = () => {
-    if (window.scrollY > 30) {
+    if (String(window.scrollY) > "5px") {
       setNavState(true);
     } else {
       setNavState(false);
@@ -133,8 +133,8 @@ export default function Header() {
 
   return (
     <React.Fragment>
-      <header className={`border-b border-[#fb393f] ${navState && "fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-between md:justify-center opacity-100 z-50 bg-white"}`}>
-        <nav className="relative px-4 py-4 flex justify-between items-center">
+      <header className={`fixed border-b border-[#fb393f] z-50 bg-white transition-all ease-in-out flex items-center justify-between md:justify-center top-0 left-0 right-0 w-full`}>
+        <nav className={`relative px-4 py-4 flex justify-between items-center w-full`}>
         <NavLink
                 to="/"
                 style={({ isActive }) => ({
@@ -366,7 +366,7 @@ export default function Header() {
             </div>
           </nav>
         </div>
-        <div className={`flex items-center justify-center absolute top-0 right-0 z-[-1] ${navState && "hidden"}`}>
+        <div className={`flex items-center justify-center absolute top-0 right-0 z-[-1]`}>
           <img src={vector} alt="vector color art" className="w-24 h-24" /> 
         </div>
       </header>
