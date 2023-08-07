@@ -27,8 +27,9 @@ import CounselingListing from "./admin/CounselingListing";
 import MeditationListing from "./admin/MeditationListing";
 import SpeakerListing from "./admin/SpeakerListing";
 import LibraryListing from "./admin/LibraryListing";
-import  Notice  from "./admin/Notice";
+import Notice from "./admin/Notice";
 import Rewards from "./admin/Rewards";
+import Skillverse from "./Skillverse";
 
 document.onkeydown = function (e) {
   if (e.keyCode === 123) {
@@ -76,6 +77,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
+          <Route exact path="/skillverse" element={<Skillverse />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/counseling" element={<Counseling />} />
           <Route exact path="/library" element={<Library />} />
@@ -109,24 +111,30 @@ const App = () => {
             <Route path="/edit-listing/:eventID" element={<EditEvent />} />
           </Route>
           <Route path="/admin/counseling-listing" element={<PrivateRoute />}>
-            <Route path="/admin/counseling-listing" element={<CounselingListing />} />
+            <Route
+              path="/admin/counseling-listing"
+              element={<CounselingListing />}
+            />
           </Route>
           <Route path="/admin/meditation-listing" element={<PrivateRoute />}>
-            <Route path="/admin/meditation-listing" element={<MeditationListing />} />
+            <Route
+              path="/admin/meditation-listing"
+              element={<MeditationListing />}
+            />
           </Route>
           <Route path="/admin/library-listing" element={<PrivateRoute />}>
             <Route path="/admin/library-listing" element={<LibraryListing />} />
           </Route>
           <Route path="/admin/speaker-listing" element={<PrivateRoute />}>
-            <Route path="/admin/speaker-listing" element={<SpeakerListing/>} />
+            <Route path="/admin/speaker-listing" element={<SpeakerListing />} />
           </Route>
           <Route path="/admin/notice" element={<PrivateRoute />}>
-            <Route path="/admin/notice" element={<Notice/>} />
+            <Route path="/admin/notice" element={<Notice />} />
           </Route>
           <Route path="/admin/rewards" element={<PrivateRoute />}>
-            <Route path="/admin/rewards" element={<Rewards/>} />
+            <Route path="/admin/rewards" element={<Rewards />} />
           </Route>
-          
+
           <Route
             path="/admin/events/listing/:eventID/happiness2023"
             element={<PrivateRoute />}
@@ -136,7 +144,7 @@ const App = () => {
               element={<RegListing />}
             />
           </Route>
-          
+
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

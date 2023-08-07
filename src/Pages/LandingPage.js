@@ -41,496 +41,443 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { toast } from "react-toastify";
 import Spinner from "../component/Spinner";
+import { useRef } from "react";
+import Typed from "typed.js";
+import harshit from "../assets/harshit.jpg";
+import garvit from "../assets/garvit.jpg";
+import vanshika from "../assets/vanshika.jpg";
+import yuvika from "../assets/yuvika.jpg";
+import himani from "../assets/himani.jpg";
+import gunjan from "../assets/gunjan.jpg";
+import rashim from "../assets/rashim.jpg";
+import amandeep from "../assets/amandeep.jpg";
+import anupama from "../assets/anupama.jpg";
+import ashutosh from "../assets/ashutosh.jpg";
+import atul from "../assets/atul.jpg";
+import dhiresh from "../assets/dhiresh.jpg";
+import gitanjali from "../assets/gitanjali.jpg";
+import gopal from "../assets/gopal.jpg";
+import isha from "../assets/isha.jpg";
+import jyoti from "../assets/jyoti.jpg";
+import onkar from "../assets/onkar.jpg";
+import rashmi from "../assets/rashmi.jpg";
+import sandhir from "../assets/sandhir.jpg";
+import shivani from "../assets/shivani.jpg";
+import sidharth from "../assets/sidhath.jpg";
+import sonia from "../assets/sonia.jpg";
+import sumit from "../assets/sumit.jpg";
+import vijay from "../assets/vijay.jpeg";
+import ajay from "../assets/ajay.jpeg";
+import sovia from "../assets/sovia.jpeg";
+import sonika from "../assets/sonika.jpeg";
+import sanjay from "../assets/sanjay.jpeg";
+import neeti from "../assets/neeti.jpeg";
+import harmeet from "../assets/harmeet.jpeg";
+import deepak from "../assets/deepak.jpeg";
+import amit from "../assets/amit.jpeg";
+import jasmeet from "../assets/jasmeet .jpg";
+import monit from "../assets/monit.jpg";
+import renu from "../assets/renu.jpg";
 
 export default function LandingPage() {
   const ambassadors = [
     {
-      name: "Dr. Sandhir Sharma",
-      position: "Chitkara Business School",
+      name: "Dr. Praveen Kumar Khosla",
+      position: "Pro Vice Chancellor",
       description:
         "Happiness is not something ready-made. It comes from your own actions.",
       img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
     },
     {
-      name: "Dr. Shivani Chopra",
-      position: "Chitkara Business School",
+      name: "Dr. Monit Kapoor",
+      position: "Dean",
       description:
         "The happiness of your life depends upon the quality of your thoughts.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: monit,
     },
     {
-      name: "Dr. Rashmi Aggarwal",
-      position: "Chitkara Business School",
-      description:
-        "Happiness is not the absence of problems, it's the ability to deal with them.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Dhiresh Kulsherstha",
-      position: "Chitkara Business School",
-      description:
-        "The greatest happiness you can have is knowing that you do not necessarily require happiness.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Sumit Wadhera",
-      position: "College of Architecture and Planning",
-      description:
-        "The secret of happiness is not in doing what one likes, but in liking what one does.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Prof. Atul Dutta",
-      position: "College of Architecture and Planning",
-      description:
-        "The greatest happiness you can have is knowing that you are loved for who you are.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Vani Parwez",
-      position: "Chitkara College of Education",
-      description:
-        "Happiness is not something you postpone for the future; it is something you design for the present.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Sangeeta Pant",
-      position: "Chitkara College of Education",
-      description:
-        "Happiness is not having what you want. It is wanting what you have.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Vidhu Baggan",
-      position: "CUIET",
-      description:
-        "Happiness is a state of mind. It's just according to the way you look at things.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Monit Kapoor",
-      position: "CUIET",
+      name: "Dr. Deepak Thakur",
+      position: "Head (Academic Operations)",
       description:
         "The happiest people don't have the best of everything, they just make the best of everything.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Isha",
-      position: "ECE Department",
-      description:
-        "Happiness is a choice. You can choose to be happy. There's going to be stress in life, but it's your choice whether you let it affect you or not.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: deepak,
     },
     {
       name: "Dr. Shivani Malhotra",
       position: "ECE Department",
       description:
         "Happiness is the art of never holding in your mind the memory of any unpleasant thing that has passed.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: shivani,
     },
     {
-      name: "Mr. Gopal Meena",
-      position: "Chitkara Design School",
+      name: "Dr. Isha",
+      position: "ECE Department",
       description:
-        "Happiness is when what you think, what you say, and what you do are in harmony",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+        "Happiness is a choice. You can choose to be happy. There's going to be stress in life, but it's your choice whether you let it affect you or not.",
+      img: isha,
     },
     {
-      name: "Ms. Akansha Ghai",
-      position: "Chitkara Design School",
+      name: "Dr. Vijay Kumar Jadon",
+      position: "Dean (Academic Affairs)",
       description:
-        "The greatest happiness you can have is knowing that you are loved for who you are.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+        "Happiness is not a station you arrive at, but a manner of traveling",
+      img: vijay,
+    },
+    {
+      name: "Dr. Ajay Goyal",
+      position: "Dean",
+      description:
+        "Happiness is not a station you arrive at, but a manner of traveling",
+      img: ajay,
+    },
+    {
+      name: "Dr. Sandhir Sharma",
+      position: "Pro Vice Chancellor",
+      description:
+        "Happiness is not a station you arrive at, but a manner of traveling",
+      img: sandhir,
+    },
+    {
+      name: "Dr. Dhiresh Kulsherstha",
+      position: "Dean (Economics)",
+      description:
+        "The greatest happiness you can have is knowing that you do not necessarily require happiness.",
+      img: dhiresh,
+    },
+    {
+      name: "Dr. Rashmi Aggarwal",
+      position: "Dean (Commerce)",
+      description:
+        "Happiness is not the absence of problems, it's the ability to deal with them.",
+      img: rashmi,
     },
     {
       name: "Dr. Ashutosh Mishra",
-      position: "Department of Mess Communication",
+      position: "Dean",
       description:
         "Happiness is a perfume you cannot pour on others without getting a few drops on yourself.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: ashutosh,
     },
     {
       name: "Dr. Gitanjali Kalia",
-      position: "Department of Mess Communication",
+      position: "Assistant Professor",
       description:
         "The happiness of your life depends upon the quality of your relationships.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: gitanjali,
+    },
+    {
+      name: "Prof. Atul Dutta",
+      position: "Dean (Interior Design)",
+      description:
+        "The greatest happiness you can have is knowing that you are loved for who you are.",
+      img: atul,
+    },
+    {
+      name: "Dr. Sumit Wadhera",
+      position: "Dean Academic",
+      description:
+        "The secret of happiness is not in doing what one likes, but in liking what one does.",
+      img: sumit,
     },
     {
       name: "Dr. Anupama",
-      position: "Psychology Department",
+      position: "HOD",
       description:
         "Happiness is when what you think, what you say, and what you do are in harmony",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Gopal Meena",
-      position: "Chitkara Design School",
-      description:
-        "Happiness is a choice. You can choose to be happy. There's going to be stress in life, but it's your choice whether you let it affect you or not.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: anupama,
     },
     {
       name: "Dr. Jyoti",
-      position: "Psychology Department",
+      position: "Assistant Professor",
+      description:
+        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind",
+      img: jyoti,
+    },
+    {
+      name: "Dr. Sovia R J Singh",
+      position: "Dean",
+      description:
+        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind",
+      img: sovia,
+    },
+    {
+      name: "Ms. Aarti Joshi",
+      position: "Dean",
       description:
         "Happiness is not a possession to be prized, it is a quality of thought, a state of mind",
       img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
     },
     {
+      name: "Dr. Neeti Sethi",
+      position: "Dean",
+      description:
+        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind",
+      img: neeti,
+    },
+    {
+      name: "Dr. Onkar Bedi",
+      position: "Assistant Dean",
+      description:
+        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind",
+      img: onkar,
+    },
+    {
+      name: "Dr. Sonia Dhiman",
+      position: "Assistant Dean",
+      description:
+        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind",
+      img: sonia,
+    },
+    {
+      name: "Mr. Gopal Meena",
+      position: "Vise President",
+      description:
+        "Happiness is when what you think, what you say, and what you do are in harmony",
+      img: gopal,
+    },
+    {
+      name: "Mr. Sanjay Jangid",
+      position: "Dean (Animation)",
+      description:
+        "Happiness is when what you think, what you say, and what you do are in harmony",
+      img: sanjay,
+    },
+    {
+      name: "Dr. Vaibhavi Pruthviraj Ranavaade",
+      position: "Dean (Fashion Design)",
+      description:
+        "Happiness is when what you think, what you say, and what you do are in harmony",
+      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+    },
+    {
+      name: "Dr. Jasneet Kaur",
+      position: "Associate Professor",
+      description:
+        "Happiness is when what you think, what you say, and what you do are in harmony",
+      img: jasmeet,
+    },
+    {
       name: "Dr. Sonika Bakshi",
-      position: "Department of Allied health Nursing",
+      position: "Dean",
       description:
         "Happiness is the art of never holding in your mind the memory of any unpleasant thing that has passed.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: sonika,
     },
     {
-      name: "Dr. Sunita Singh",
-      position: "Department of Allied health Nursing",
-      description:
-        "The happiest people don't have the best of everything, they just make the best of everything.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Amandeep Kaur",
-      position: "Department of Allied health Nursing",
+      name: "Dr. Amandeep Singh",
+      position: "Principal (Physiotherapy)",
       description:
         "The greatest happiness you can have is knowing that you do not necessarily require happiness",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: amandeep,
     },
     {
-      name: "Dr. Manpreet Grewal",
-      position: "Law School",
+      name: "Dr. Harmeet Kaur",
+      position: "Principal",
       description:
-        "Happiness is not something you can postpone for the future; it is something you design for the present",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+        "The greatest happiness you can have is knowing that you do not necessarily require happiness",
+      img: harmeet,
     },
     {
-      name: "Dr. Vijay Kumar Jadon",
-      position: "Applied Engineering-CUIET",
+      name: "Dr. Renu Ranjit Thakur",
+      position: "HOD",
       description:
-        "Happiness is not a station you arrive at, but a manner of traveling",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+        "The greatest happiness you can have is knowing that you do not necessarily require happiness",
+      img: renu,
     },
     {
-      name: "Dr. Sdarth Bedi",
-      position: "IHM/CCHM,CULINARY",
+      name: "Dr. Sidarth Bedi",
+      position: "Assistant Professor",
       description:
         "Happiness is a state of mind. It's just according to the way you look at things",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: sidharth,
     },
     {
-      name: "Chef Shankar",
-      position: "Department of Allied health Nursing",
+      name: "Mr. Amit Gupta",
+      position: "Professor",
       description:
         "The greatest happiness you can have is knowing that you do not necessarily require happiness",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Amandeep Kaur",
-      position: "IHM/CCHM,CULINARY",
-      description:
-        "The key to being happy is knowing you have the power to choose what to accept and what to let go",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Amit",
-      position: "IHM/CCHM,CULINARY",
-      description:
-        "The greatest happiness you can have is knowing that you do not necessarily require happiness",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Harpal Singh",
-      position: "Liberal Arts",
-      description:
-        "Happiness is not the absence of problems, it's the ability to deal with them",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. PK Khosla",
-      position: "Pro Vice Chancellor",
-      description:
-        "The happiness of your life depends upon the quality of your thoughts.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "COL. Rakesh Sharma",
-      position: "Director Office of University Affairs",
-      description:
-        "The most important thing is to enjoy your life—to be happy—it's all that matters.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Rina Angel",
-      position: "Director Administration- HK & Maintenance",
-      description:
-        "The happiest people are those who are too busy to notice whether they are happy or not",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "CA. Rajat Bhatia",
-      position: "Office of Finance and accounts",
-      description:
-        "Happiness is not something you can buy, it's something you can create",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Capt. Seema Sidhu",
-      position: "Office of Residential Services",
-      description:
-        "The secret of happiness is not in doing what one likes, but in liking what one does",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Ritu Nag",
-      position: "Chief Communications Officer",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Harinder Pal Singh",
-      position: "Director of University Sports Board",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Sawaranjeet Sidhu",
-      position: "Office of Brand Communication",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Harkiran Kaur",
-      position: "Chitkara Alumni Network",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Dr. Harpreet Singh Bhatia",
-      position: "Office of Talent Management",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Arpit",
-      position: "Branding Team",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Atul",
-      position: "Branding Team",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Ms. Mahima",
-      position: "Branding Team",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Ms. Parminder Kaur",
-      position: "Branding Team",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mrs. Tanushree",
-      position: "Branding Team",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-
-    {
-      name: "Mr. Vicky Kumar",
-      position: "Residential Department",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mr. Pradeep Tripaathi",
-      position: "Senior Boys Hostels Warden",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-    },
-    {
-      name: "Mrs. Indra",
-      position: "Senior Girls Hostel Warden",
-      description:
-        "Happiness is not a possession to be prized, it is a quality of thought, a state of mind.",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
+      img: amit,
     },
   ];
   const testimonials = [
     {
       id: 1,
-      name: "Vrinda",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "Joining happiness club is a great way to meet new people, learn new skills, and discover new ways to find joy and fulfillment in your life.",
+      name: "Vanshika",
+      img: vanshika,
+      txt: "My experience with happiness centre was sooo amazing it was wonderful! Nd I really feel grateful to be a part of happiness family....from there I came to learn about so many things...like we should be grateful for everything we have bcz those things can be need of someone.",
     },
     {
       id: 2,
-      name: "Natasha",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "Whether you're looking to reduce stress, improve you mental health, or simply have more fun, happiness club has something for you.",
+      name: "Rashim Bindal",
+      img: rashim,
+      txt: "I wanted to share with you my incredible experience after joining the Chitkara Happiness Centre. It has truly been a life-changing journey, and I couldn't be more grateful for the positive impact it has had on my life.",
     },
     {
       id: 3,
-      name: "Keshav Kumar",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "happiness club is more than just a social club - it's a community of like-minded individuals who are dedicated to living their best lives.",
+      name: "Yuvika",
+      img: yuvika,
+      txt: "After joining happiness centre I felt positivity in me and I got to know how to be grateful for small things also. It also helped me in gaining confidence and leadership skills. Secondly in career it helped in setting up my goals and fulfilling them with enthusiasm and confidence. ",
     },
     {
       id: 4,
-      name: "Himani Goyal",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "events are designed to help you build resilience an cope with life's challenges in a healthy and positive way.",
+      name: "Harshit Bhargave",
+      img: harshit,
+      txt: "After joining the center there are many changes inside me. firstly I got confidence and secondly I learned how  to create  network with people earlier I could not talk to people now I can talk to anyone comfortably and After boosting the confidence, I can speak on stage very comfortably.",
     },
     {
       id: 5,
-      name: "Vansh Kapoor",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "Joining happiness club is a great way to make new friends and connect with others who share your values and goals.",
+      name: "Gunjan",
+      img: gunjan,
+      txt: "This Happiness Centre has empowered me to concentrate more on my goals. Prior to joining, I often found myself easily distracted and struggled to maintain focus on my ambitions. However, with the support and guidance provided by the Manav Sir and All other Members of Happiness Centre.",
     },
     {
       id: 6,
-      name: "Ishika Singh",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "happiness club is a safe and supportive space where you can be yourself and share your experiences with others who understand.",
+      name: "Himani",
+      img: himani,
+      txt: "Happiness centre is best platform for me I get the chance to get explore the most  and got so many opportunity to work over here I got family like environment over there I donot even feel I am far away from my home  I got opportunity to express my self",
     },
     {
       id: 7,
-      name: "Shivam Mishra",
-      img: "https://avatars.githubusercontent.com/u/92084737?s=400&u=b72cd8c67b041952cc4145ca1f19926b41729833&v=4",
-      txt: "By attending events, you'll learn practical tools and strategies for cultivating happiness and well-being in your everyday life.",
+      name: "Garvit",
+      img: garvit,
+      txt: "One of the most noticeable changes I've felt since becoming a part of this center is a significant boost in my confidence. Previously, I used to struggle with connecting with people. However, through the various activities offered at the centre, I have gained the ability to easily connect with individuals.",
     },
   ];
 
-  const [notices,setNotices] = useState(null);
-  const [rewards,setRewards] = useState(null);
-  const [leaderBoard,setleaderBoard] = useState(null);
-  const [loading,setLoading] = useState(true);
+  const [notices, setNotices] = useState(null);
+  const [rewards, setRewards] = useState(null);
+  const [leaderBoard, setleaderBoard] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [eventsT, setEventsT] = useState(110);
 
-  useEffect(()=>{
-    
-        async function fetchListings(){
-          try{
-            const noticeRef = collection(db, "notice");
-            const querySnap = await getDocs(noticeRef);
-            
-            const notices = [];
-            querySnap.forEach((doc) => {
-              return notices.push({
-                id: doc.id,
-                data: doc.data(),
-              });
-            });
-            setNotices(notices);
-            sessionStorage.setItem("notices",JSON.stringify(notices))
-            setLoading(false)
-          }catch(error){
-              toast.error("Something Went Wrong! Network Issue")
-          }
-        }
-        if(notices===null&&sessionStorage.getItem("notices")===null){
-        fetchListings()
+  useEffect(() => {
+    async function fetchListings() {
+      try {
+        const noticeRef = collection(db, "notice");
+        const querySnap = await getDocs(noticeRef);
+
+        const notices = [];
+        querySnap.forEach((doc) => {
+          return notices.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        setNotices(notices);
+        sessionStorage.setItem("notices", JSON.stringify(notices));
+        setLoading(false);
+      } catch (error) {
+        toast.error("Something Went Wrong! Network Issue");
       }
-        else if(sessionStorage.getItem("notices")!==null){
-          setNotices(JSON.parse(sessionStorage.getItem("notices")))
-          setLoading(false)
-          
-        }
-        
-  },[])
-  useEffect(()=>{
-    
-        async function fetchListings(){
-          try{
-            const rewardRef = collection(db, "rewards");
-            const querySnap = await getDocs(rewardRef);
-            
-            const rewards = [];
-            querySnap.forEach((doc) => {
-              return rewards.push({
-                id: doc.id,
-                data: doc.data(),
-              });
-            });
-            setRewards(rewards);
-            sessionStorage.setItem("rewards",JSON.stringify(rewards))
-            setLoading(false)
-          }catch(error){
-              toast.error("Something Went Wrong! Network Issue")
-          }
-        }
-        if(rewards===null&&sessionStorage.getItem("rewards")===null){
-        fetchListings()
+    }
+    if (notices === null && sessionStorage.getItem("notices") === null) {
+      fetchListings();
+    } else if (sessionStorage.getItem("notices") !== null) {
+      setNotices(JSON.parse(sessionStorage.getItem("notices")));
+      setLoading(false);
+    }
+  }, []);
+  useEffect(() => {
+    async function fetchListings() {
+      try {
+        const rewardRef = collection(db, "rewards");
+        const querySnap = await getDocs(rewardRef);
+
+        const rewards = [];
+        querySnap.forEach((doc) => {
+          return rewards.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        setRewards(rewards);
+        sessionStorage.setItem("rewards", JSON.stringify(rewards));
+        setLoading(false);
+      } catch (error) {
+        toast.error("Something Went Wrong! Network Issue");
       }
-        else if(sessionStorage.getItem("rewards")!==null){
-          setRewards(JSON.parse(sessionStorage.getItem("rewards")))
-          console.log(rewards)
-          setLoading(false)
-          
-        }
-        
-  },[])
-  useEffect(()=>{
-    
-        async function fetchListings(){
-          try{
-            const leaderRef = collection(db, "leaderboard");
-            const querySnap = await getDocs(leaderRef);
-            
-            const leaders = [];
-            querySnap.forEach((doc) => {
-              return leaders.push({
-                id: doc.id,
-                data: doc.data(),
-              });
-            });
-            setleaderBoard(leaders);
-            sessionStorage.setItem("leaders",JSON.stringify(leaders))
-            setLoading(false)
-          }catch(error){
-              toast.error("Something Went Wrong! Network Issue")
-          }
-        }
-        if(leaderBoard===null&&sessionStorage.getItem("leaders")===null){
-        fetchListings()
+    }
+    if (rewards === null && sessionStorage.getItem("rewards") === null) {
+      fetchListings();
+    } else if (sessionStorage.getItem("rewards") !== null) {
+      setRewards(JSON.parse(sessionStorage.getItem("rewards")));
+      console.log(rewards);
+      setLoading(false);
+    }
+  }, []);
+  useEffect(() => {
+    async function fetchListings() {
+      try {
+        const leaderRef = collection(db, "leaderboard");
+        const querySnap = await getDocs(leaderRef);
+
+        const leaders = [];
+        querySnap.forEach((doc) => {
+          return leaders.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        setleaderBoard(leaders);
+        sessionStorage.setItem("leaders", JSON.stringify(leaders));
+        setLoading(false);
+      } catch (error) {
+        toast.error("Something Went Wrong! Network Issue");
       }
-        else if(sessionStorage.getItem("leaders")!==null){
-          setleaderBoard(JSON.parse(sessionStorage.getItem("leaders")))
-          console.log(leaderBoard)
-          setLoading(false)
-          
-        }
-        
-  },[])
+    }
+    if (leaderBoard === null && sessionStorage.getItem("leaders") === null) {
+      fetchListings();
+    } else if (sessionStorage.getItem("leaders") !== null) {
+      setleaderBoard(JSON.parse(sessionStorage.getItem("leaders")));
+      console.log(leaderBoard);
+      setLoading(false);
+    }
+  }, []);
   SwiperCore.use([Autoplay, Navigation, Pagination]);
+  const targetRef = useRef(null);
+  const [isCounted, setIsCounted] = useState(true);
+
+  useEffect(() => {
+    const targetNumber = eventsT; // Replace with your desired target number
+    let typed;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !isCounted) {
+          typed = new Typed(targetRef.current, {
+            strings: ["0", targetNumber.toString()],
+            startDelay: 1000, // Delay before counting starts (in milliseconds)
+            typeSpeed: 50, // Speed of counting (in milliseconds)
+            onComplete: () => {
+              console.log("Counting complete!");
+            },
+          });
+
+          setIsCounted(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(targetRef.current);
+
+    return () => {
+      observer.disconnect();
+      if (typed) {
+        typed.destroy();
+      }
+    };
+  }, [isCounted]);
   return (
-    <div className="flex flex-col items-center font-monts gap-6">
+    <div className="flex flex-col items-center font-monts gap-6 pt-[6rem]">
       <section className="h-full w-screen flex flex-col items-center justify-center gap-6 relative">
         <div className="flex flex-col-reverse md:flex-row items-center justify-center md:mb-8 md:mt-2 my-0 mb-2 max-w-[90rem]">
           <div className="flex flex-col items-center md:items-start gap-4 md:gap-6 w-full h-full md:w-1/2 justify-center">
-            <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-6 lg:ml-8 xl:ml-12 p-6 sm:p-8 md:p-0 text-center md:text-start mt-2">
+            <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-6 lg:ml-8 xl:ml-12 p-6 sm:p-8 md:p-0 text-center md:text-start mt-2 cursor-default select-none">
               There is only one <span className="text-[#F3A140]">passion</span>,
               the passion for <span className="text-[#EF1C22]">happiness.</span>
             </h1>
-            <NavLink to="/counseling">
+            {/* <NavLink to="/counseling">
               <div className="flex relative flex-row items-center justify-center gap-6  ml-0 md:ml-6 lg:ml-8 xl:ml-12 p-1 mb-1 font-zilla">
                 <div className="flex items-center justify-center bg-[#FB393F] w-[12rem] h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
                   <p className="text-sm">Register For Counselling</p>
@@ -543,7 +490,7 @@ export default function LandingPage() {
                   />
                 </div>
               </div>
-            </NavLink>
+            </NavLink> */}
           </div>
           <div className="flex items-center justify-center w-full md:w-1/2">
             <img
@@ -554,13 +501,13 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="flex flex-row items-center justify-center p-6 sm:p-4 md:p-6 xl:p-10 mt-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 xl:gap-6 justify-around p-2 xs:p-6 sm:p-0 md:p-4 lg:p-1">
-            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
-              <div className="flex flex-col relative bg-[#F45B49] h-full w-full justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 xl:gap-8 justify-around p-2 xs:p-6 sm:p-0 md:p-4 lg:p-1">
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#FEC2D9] h-full w-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
                 <div className="flex flex-row justify-start items-center  mt-4">
                   <img src={library} alt="arrow next" className="w-12 h-12" />
                 </div>
-                <h1 className="font-bold">Library</h1>
+                <h1 className="font-bold">Carrer and Life Skills</h1>
                 <div className="flex items-center">
                   <p className="text-sm md:text-base font-zilla">
                     Any book that helps a child to form a habit of reading, to
@@ -570,9 +517,13 @@ export default function LandingPage() {
                     some flavor and essence to our life.
                   </p>
                 </div>
-                <NavLink to="/library">
+                <NavLink to="/library" className="cursor-default">
                   <div className="flex flex-row justify-end items-center">
-                    <img src={arrow} alt="arrow next" className="w-10 h-10" />
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
                   </div>
                 </NavLink>
                 <div className="absolute top-2 right-2 flex items-center justify-center">
@@ -584,41 +535,8 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
-              <div className="flex flex-col relative bg-[#FCDA69] h-full w-full justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
-                <div className="flex flex-row justify-start items-center  mt-4">
-                  <img
-                    src={meditation}
-                    alt="arrow next"
-                    className="w-12 h-12"
-                  />
-                </div>
-                <h1 className="font-bold">Meditation</h1>
-                <div className="flex items-center">
-                  <p className="text-sm md:text-base font-zilla">
-                    Happiness Centre offers the following meditations in the
-                    Meditation room:- Mindful Breathing Meditation, Guided
-                    Meditation, Silence Meditation. Meditation doesn’t only make
-                    us more peaceful; it also helps students to be more
-                    successful in all life endeavors.
-                  </p>
-                </div>
-                <NavLink to="/meditation">
-                  <div className="flex flex-row justify-end items-center ">
-                    <img src={arrow} alt="arrow next" className="w-10 h-10" />
-                  </div>
-                </NavLink>
-                <div className="absolute top-2 right-2 flex items-center justify-center">
-                  <img
-                    src={meditation2}
-                    alt="vector library"
-                    className="w-7 h-7"
-                  />
-                </div>
-              </div>
-            </div>
             <div className="grid-cols-1   relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
-              <div className="flex flex-col relative h-full w-full bg-[#C6FCDB]  justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
+              <div className="flex flex-col relative h-full w-full bg-[#C6FCDB]  justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
                 <div className="flex flex-row justify-start items-center h-full w-full mt-4">
                   <img
                     src={counseling}
@@ -626,7 +544,7 @@ export default function LandingPage() {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="font-bold">Counseling</h1>
+                <h1 className="font-bold">Perma Interventions</h1>
                 <div className="flex items-center">
                   <p className="text-sm md:text-base font-zilla">
                     Counselling sessions are being taken by Chief Happiness
@@ -650,12 +568,12 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="grid-cols-1  relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
-              <div className="flex flex-col relative bg-[#FEC2D9] w-full h-full justify-center gap-6 p-4 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#FEC2D9] w-full h-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
                 <div className="flex flex-row justify-start items-center h-full w-full mt-4">
                   <img src={speaker} alt="arrow next" className="w-12 h-12" />
                 </div>
-                <h1 className="font-bold">Speaker Session</h1>
+                <h1 className="font-bold">Guest Speaker Sessions</h1>
                 <div className="flex items-center">
                   <p className="text-sm md:text-base font-zilla">
                     A motivational speaker has mastered the art of igniting in
@@ -665,9 +583,13 @@ export default function LandingPage() {
                     be strengthened via the use of specialized approaches.
                   </p>
                 </div>
-                <NavLink to="/speaker">
+                <NavLink to="/speaker" className="cursor-default">
                   <div className="flex flex-row justify-end items-center">
-                    <img src={arrow} alt="arrow next" className="w-10 h-10" />
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
                   </div>
                 </NavLink>
                 <div className="absolute top-2 right-2 flex items-center justify-center">
@@ -675,6 +597,175 @@ export default function LandingPage() {
                     src={speaker2}
                     alt="vector library"
                     className="w-10 h-10"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#FCDA69] h-full w-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
+                <div className="flex flex-row justify-start items-center  mt-4">
+                  <img src={library} alt="arrow next" className="w-12 h-12" />
+                </div>
+                <h1 className="font-bold">Happiness Lounge</h1>
+                <div className="flex items-center">
+                  <p className="text-sm md:text-base font-zilla">
+                    Any book that helps a child to form a habit of reading, to
+                    make reading one of his deep and continuing needs, is good
+                    for him. So we have chosen more than 50 books in the
+                    Happiness library that give new ideas and lessons by adding
+                    some flavor and essence to our life.
+                  </p>
+                </div>
+                <NavLink to="/library" className="cursor-default">
+                  <div className="flex flex-row justify-end items-center">
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
+                  </div>
+                </NavLink>
+                <div className="absolute top-2 right-2 flex items-center justify-center">
+                  <img
+                    src={library2}
+                    alt="vector library"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#F45B49] h-full w-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
+                <div className="flex flex-row justify-start items-center  mt-4">
+                  <img src={library} alt="arrow next" className="w-12 h-12" />
+                </div>
+                <h1 className="font-bold">Booknactics</h1>
+                <div className="flex items-center">
+                  <p className="text-sm md:text-base font-zilla">
+                    Any book that helps a child to form a habit of reading, to
+                    make reading one of his deep and continuing needs, is good
+                    for him. So we have chosen more than 50 books in the
+                    Happiness library that give new ideas and lessons by adding
+                    some flavor and essence to our life.
+                  </p>
+                </div>
+                <NavLink to="/library" className="cursor-default">
+                  <div className="flex flex-row justify-end items-center">
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
+                  </div>
+                </NavLink>
+                <div className="absolute top-2 right-2 flex items-center justify-center">
+                  <img
+                    src={library2}
+                    alt="vector library"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#FCDA69] h-full w-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
+                <div className="flex flex-row justify-start items-center  mt-4">
+                  <img
+                    src={meditation}
+                    alt="arrow next"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h1 className="font-bold">Mindfulness Meditation</h1>
+                <div className="flex items-center">
+                  <p className="text-sm md:text-base font-zilla">
+                    Happiness Centre offers the following meditations in the
+                    Meditation room:- Mindful Breathing Meditation, Guided
+                    Meditation, Silence Meditation. Meditation doesn’t only make
+                    us more peaceful; it also helps students to be more
+                    successful in all life endeavors.
+                  </p>
+                </div>
+                <NavLink to="/meditation" className="cursor-default">
+                  <div className="flex flex-row justify-end items-center ">
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
+                  </div>
+                </NavLink>
+                <div className="absolute top-2 right-2 flex items-center justify-center">
+                  <img
+                    src={meditation2}
+                    alt="vector library"
+                    className="w-7 h-7"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#F45B49] h-full w-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
+                <div className="flex flex-row justify-start items-center  mt-4">
+                  <img src={library} alt="arrow next" className="w-12 h-12" />
+                </div>
+                <h1 className="font-bold">Each One Teach One</h1>
+                <div className="flex items-center">
+                  <p className="text-sm md:text-base font-zilla">
+                    Any book that helps a child to form a habit of reading, to
+                    make reading one of his deep and continuing needs, is good
+                    for him. So we have chosen more than 50 books in the
+                    Happiness library that give new ideas and lessons by adding
+                    some flavor and essence to our life.
+                  </p>
+                </div>
+                <NavLink to="/library" className="cursor-default">
+                  <div className="flex flex-row justify-end items-center">
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
+                  </div>
+                </NavLink>
+                <div className="absolute top-2 right-2 flex items-center justify-center">
+                  <img
+                    src={library2}
+                    alt="vector library"
+                    className="w-12 h-12"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative w-full h-full p-0 xs:p-4 sm:p-2 md:p-6 lg:p-0">
+              <div className="flex flex-col relative bg-[#C6FCDB] h-full w-full justify-center gap-6 p-4 transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black hover:shadow-none hover:border-none hover:border-transparent">
+                <div className="flex flex-row justify-start items-center  mt-4">
+                  <img src={library} alt="arrow next" className="w-12 h-12" />
+                </div>
+                <h1 className="font-bold">Fun and Games Activities</h1>
+                <div className="flex items-center">
+                  <p className="text-sm md:text-base font-zilla">
+                    Any book that helps a child to form a habit of reading, to
+                    make reading one of his deep and continuing needs, is good
+                    for him. So we have chosen more than 50 books in the
+                    Happiness library that give new ideas and lessons by adding
+                    some flavor and essence to our life.
+                  </p>
+                </div>
+                <NavLink to="/library" className="cursor-default">
+                  <div className="flex flex-row justify-end items-center">
+                    <img
+                      src={arrow}
+                      alt="arrow next"
+                      className="w-10 h-10 cursor-pointer"
+                    />
+                  </div>
+                </NavLink>
+                <div className="absolute top-2 right-2 flex items-center justify-center">
+                  <img
+                    src={library2}
+                    alt="vector library"
+                    className="w-12 h-12"
                   />
                 </div>
               </div>
@@ -726,7 +817,7 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col items-center md:items-start md:gap-6 w-full h-full md:w-[54%] justify-center mb-4  md:my-8">
               <div className="flex items-center justify-center">
-                <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-2 lg:ml-4 xl:ml-6 p-4 sm:p-6 md:p-2 lg:p-1 text-center md:text-start">
+                <h1 className="font-extrabold text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ml-0 md:ml-2 lg:ml-4 xl:ml-6 p-4 sm:p-6 md:p-2 lg:p-1 text-center md:text-start select-none cursor-pointer">
                   A <span className="text-[#F3A140]">smile</span>, is always the
                   best form of{" "}
                   <span className="text-[#EF1C22]">introduction.</span>
@@ -756,7 +847,7 @@ export default function LandingPage() {
               </div>
               <NavLink to="/team">
                 <div className="flex relative flex-row items-center justify-center gap-6 my-2  ml-0 md:ml-2 lg:ml-6 xl:ml-10 p-1 font-zilla">
-                  <div className="flex items-center justify-center bg-[#FCDA69] w-[11rem] h-[2.5rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
+                  <div className="flex items-center justify-center bg-[#FCDA69] w-[11rem] h-[2.5rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)] transition-all duration-300 ease-in-out hover:shadow-none">
                     <p className="text-xs">MEET THE TEAM</p>
                   </div>
                 </div>
@@ -765,7 +856,7 @@ export default function LandingPage() {
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full p-4">
             <div className="flex flex-col items-center justify-center w-full h-full p-4">
-              <h1 className="font-monts font-bold flex items-center justify-center gap-2  text-xl sm:text-4xl p-1 uppercase">
+              <h1 className="font-monts font-bold flex items-center justify-center gap-2  text-xl sm:text-4xl p-1 uppercase select-none cursor-pointer">
                 OUR <span className="text-[#EF1C22]"> AMBASSADORS</span>
               </h1>
             </div>
@@ -842,7 +933,7 @@ export default function LandingPage() {
         <div className="flex h-full w-full flex-col md:flex-row items-center justify-center">
           <div className="flex flex-col items-center md:items-start gap-4 md:gap-6 w-full h-full md:w-[40%] justify-center my-6 md:my-0">
             <div className="flex items-center justify-center relative ml-0 md:ml-5 lg:ml-7 xl:ml-11 p-1 mt-2">
-              <h1 className="font-extrabold text-4xl xs:text-5xl sm:text-5xl md:text-[2.5rem] lg:text-5xl xl:text-7xl  sm:p-4 md:p-0 text-center md:text-start p-1">
+              <h1 className="font-extrabold text-4xl xs:text-5xl sm:text-5xl md:text-[2.5rem] lg:text-5xl xl:text-7xl  sm:p-4 md:p-0 text-center md:text-start p-1 select-none cursor-pointer">
                 WEEKLY
                 <span className="text-[#F3A140]">
                   <br />
@@ -859,12 +950,12 @@ export default function LandingPage() {
             </div>
             <div className="flex relative flex-row items-center justify-center gap-3 sm:gap-6  ml-0 md:ml-5 lg:ml-7 xl:ml-11 p-1 mb-1 font-zilla">
               <NavLink to="/events">
-                <div className="flex items-center justify-center bg-[#FB393F] w-[8rem] h-[2.6rem] md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
+                <div className="flex items-center justify-center bg-[#FB393F] w-[8rem] h-[2.6rem] md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 hover:shadow-none transition-all duration-300 ease-in-out shadow-[4px_4px_rgba(0,0,0,1)]">
                   <p className="text-sm">PAST EVENT</p>
                 </div>
               </NavLink>
               <NavLink to="/events">
-                <div className="flex items-center justify-center bg-[#FCDA69]  w-[8rem] h-[2.6rem]  md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 shadow-[4px_4px_rgba(0,0,0,1)]">
+                <div className="flex items-center justify-center bg-[#FCDA69]  w-[8rem] h-[2.6rem]  md:w-[7rem] md:h-[2.5rem] lg:w-[8rem] lg:h-[2.6rem] p-2 hover:shadow-none transition-all duration-300 ease-in-out shadow-[4px_4px_rgba(0,0,0,1)]">
                   <p className="text-sm">UPCOMING</p>
                 </div>
               </NavLink>
@@ -872,7 +963,7 @@ export default function LandingPage() {
           </div>
           <div className="flex items-center justify-center w-full h-full md:w-[60%] my-8 md:m-0">
             <div className="flex flex-col sm:flex-row h-full w-full items-center justify-center gap-4 p-4 md:gap-4 md:p-2 lg:gap-4 lg:p-4 xl:gap-6 xl:p-6">
-              <div className="flex flex-col h-[70%] lg:h-[75%] bg-white xl:h-[80%] w-4/5 md:w-1/2 items-center justify-center shadow-[5px_6px_rgba(0,0,0,1)] border-[1px] border-black">
+              <div className="flex flex-col h-[70%] lg:h-[75%] bg-white xl:h-[80%] w-4/5 md:w-1/2 items-center justify-center hover:shadow-none transition-all duration-300 ease-in-out shadow-[5px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="h-[25%] w-full p-1">
                   <div className="flex items-center justify-start p-1 w-full h-full">
                     <img
@@ -883,7 +974,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="h-[25%] w-full bg-[#FB393F] flex items-center justify-center md:justify-start p-1 border-t-[1px] border-black">
-                  <h1 className="font-semibold text-2xl xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl md:ml-2 p-4 md:p-0">
+                  <h1 className="text-2xl xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl md:ml-2 p-4 md:p-0 font-semibold select-none cursor-pointer">
                     EVENTS
                   </h1>
                 </div>
@@ -909,21 +1000,24 @@ export default function LandingPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-center p-1">
-                      <p className="font-normal text-base xs:text-lg sm:text-xl lg:text-2xl">
-                        20
+                      <p
+                        ref={targetRef}
+                        className="font-normal text-base xs:text-lg sm:text-xl lg:text-2xl"
+                      >
+                        {eventsT}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col h-[70%] bg-white lg:h-[75%] xl:h-[80%] w-4/5 md:w-1/2 items-center justify-center shadow-[5px_6px_rgba(0,0,0,1)] border-[1px] border-black">
+              <div className="flex flex-col h-[70%] bg-white lg:h-[75%] xl:h-[80%] w-4/5 md:w-1/2 items-center justify-center hover:shadow-none transition-all duration-300 ease-in-out shadow-[5px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="h-[25%] w-full p-1">
                   <div className="flex items-center justify-start p-1 w-full h-full">
                     <img src={cep} alt="cep" className="w-16 h-16 ml-2 m-1" />
                   </div>
                 </div>
                 <div className="h-[25%] w-full bg-[#FCDA69] flex items-center justify-center md:justify-start p-1  border-t-[1px] border-black">
-                  <h1 className="font-semibold text-2xl xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl md:ml-2 p-4 md:p-0">
+                  <h1 className="text-2xl xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl md:ml-2 p-4 md:p-0 font-semibold select-none cursor-pointer">
                     CEP/CLASSES
                   </h1>
                 </div>
@@ -979,7 +1073,7 @@ export default function LandingPage() {
           <div className="flex flex-col lg:flex-row items-center justify-center w-full h-full p-1 my-1">
             <div className="flex flex-col items-center justify-center w-full  my-2 h-[24rem] p-1">
               <div className="flex flex-col items-center justify-center w-full h-[25%] p-4">
-                <h1 className="font-monts font-bold flex items-center justify-center gap-2  text-3xl p-1">
+                <h1 className="font-monts font-bold flex items-center justify-center gap-2  text-3xl p-1 select-none cursor-pointer">
                   Happiness <span className="text-[#FB393F]"> Quotes</span>
                 </h1>
               </div>
@@ -990,30 +1084,40 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col items-start justify-start w-full my-2 h-[24rem] p-1 overflow-scroll">
               <div className="flex flex-col items-center justify-center w-full h-[25%] p-4">
-                <h1 className="font-monts font-bold flex items-center justify-center gap-2 text-3xl p-1 w-full h-full">
+                <h1 className="font-monts font-bold flex items-center justify-center gap-2 text-3xl p-1 w-full h-full select-none cursor-pointer">
                   Notice <span className="text-[#FC762B]">Board</span>
                 </h1>
               </div>
-              {loading ? <Spinner/> : ( notices && notices.length > 0 ? ( notices.map((item,index)=>(
-                <>
-                <a href={item?.data?.noticeLink} key={index} className="flex flex-1 flex-col items-center justify-center w-full h-[18%]">
-                <div className="flex flex-col items-center justify-start w-full h-full p-2">
-                <p className="font-zilla font-normal flex items-center text-center text-blue-800 justify-center gap-2 text-xl p-1">
-                  {item?.data?.noticeName}
-                </p>
-              </div>
-              </a>
-              </>
-              )) ):( <div className="flex flex-col items-center justify-center w-full h-[18%] p-2">
-                <p className="font-zilla font-normal flex items-center text-center text-gray-800 justify-center gap-2 text-xl p-1">
-                  NO NOTICE TILL NOW PLEASE WAIT!
-                </p>
-              </div>))}
+              {loading ? (
+                <Spinner />
+              ) : notices && notices.length > 0 ? (
+                notices.map((item, index) => (
+                  <>
+                    <a
+                      href={item?.data?.noticeLink}
+                      key={index}
+                      className="flex flex-1 flex-col items-center justify-center w-full h-[18%]"
+                    >
+                      <div className="flex flex-col items-center justify-start w-full h-full p-2">
+                        <p className="font-zilla font-normal flex items-center text-center text-blue-800 justify-center gap-2 text-xl p-1">
+                          {item?.data?.noticeName}
+                        </p>
+                      </div>
+                    </a>
+                  </>
+                ))
+              ) : (
+                <div className="flex flex-col items-center justify-center w-full h-[18%] p-2">
+                  <p className="font-zilla font-normal flex items-center text-center text-gray-800 justify-center gap-2 text-xl p-1">
+                    NO NOTICE TILL NOW PLEASE WAIT!
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full p-4">
             <div className="flex flex-col items-center justify-center w-full h-full p-4">
-              <h1 className="font-monts font-bold flex items-center justify-center gap-2  text-3xl sm:text-4xl p-1 uppercase text-[#FC762B]">
+              <h1 className="font-monts font-bold flex items-center justify-center gap-2  text-3xl sm:text-4xl p-1 uppercase text-[#FC762B] select-none cursor-pointer">
                 Testimonials
               </h1>
             </div>
@@ -1055,7 +1159,7 @@ export default function LandingPage() {
                             <img
                               src={item.img}
                               alt="images"
-                              className="w-16 h-16 rounded-full"
+                              className="w-20 h-20 rounded-full"
                             />
                           </div>
                         </div>
@@ -1090,55 +1194,71 @@ export default function LandingPage() {
         <div className="flex items-center justify-center w-full h-full">
           <div className="flex items-center flex-col justify-center w-full h-full gap-1">
             <div className="flex flex-col items-center justify-center  p-4 my-1">
-              <h1 className="font-monts font-bold flex items-center justify-center gap-2 text-lg xs:text-xl sm:text-4xl p-1 uppercase ">
+              <h1 className="font-monts font-bold flex items-center justify-center gap-2 text-lg xs:text-xl sm:text-4xl p-1 uppercase select-none cursor-pointer ">
                 Rewards&<span className="text-[#F55C4A]">Achievements</span>
               </h1>
             </div>
             <div className="flex flex-row  justify-center w-full sm:w-[75%] h-full p-4 gap-4">
-             {loading ? <Spinner/> : ( rewards && rewards.length > 0 ? (rewards.map((item,index)=>(<div className="w-1/2 bg-white h-full flex flex-col items-center justify-center gap-2 shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] p-1 border-black">
-                <div className="p-1 mt-4">
-                  <img
-                    src={item.data?.imgUrls[0]}
-                    alt="avatar"
-                    className="w-20 h-20 sm:w-24 rounded-full sm:h-24"
-                  />
-                </div>
-                <div className="p-1">
-                  {" "}
-                  <h1 className="my-1 text-base md:text-lg font-zilla capitalize">
-                    {item.data?.name}
-                  </h1>
-                </div>
-                <div className="p-1">
-                  {" "}
-                  <p className="mb-2 text-base md:text-lg font-zilla">
-                   {item.data?.position}
-                  </p>
-                </div>
-              </div>))):(
-                             <p>NO WINNERS TILL NOW!</p>
-              ))
-              }
+              {loading ? (
+                <Spinner />
+              ) : rewards && rewards.length > 0 ? (
+                rewards.map((item, index) => (
+                  <div className="w-1/2 bg-white h-full flex flex-col items-center justify-center gap-2 hover:shadow-none transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] p-1 border-black">
+                    <div className="p-1 mt-4">
+                      <img
+                        src={item.data?.imgUrls[0]}
+                        alt="avatar"
+                        className="w-20 h-20 sm:w-24 rounded-full sm:h-24"
+                      />
+                    </div>
+                    <div className="p-1">
+                      {" "}
+                      <h1 className="my-1 text-base md:text-lg font-zilla capitalize">
+                        {item.data?.name}
+                      </h1>
+                    </div>
+                    <div className="p-1">
+                      {" "}
+                      <p className="mb-2 text-base md:text-lg font-zilla">
+                        {item.data?.position}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>NO WINNERS TILL NOW!</p>
+              )}
             </div>
             <div className="flex items-center justify-center w-full h-full p-4">
-              <div className="flex flex-col bg-white items-center justify-center w-[90%] sm:w-[75%] h-full shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
+              <div className="flex flex-col bg-white items-center justify-center w-[90%] sm:w-[75%] h-full hover:shadow-none transition-all duration-300 ease-in-out shadow-[6px_6px_rgba(0,0,0,1)] border-[1px] border-black">
                 <div className="p-1 mt-4">
-                  <h1 className="my-1 text-base md:text-lg font-monts uppercase">
+                  <h1 className="my-1 text-base md:text-lg font-monts uppercase hover:underline font-semibold select-none cursor-pointer">
                     LeaderBoard
                   </h1>
                 </div>
                 <div className="flex items-center flex-col justify-center w-full h-full p-4">
-                {
-                  loading ? <Spinner/> : (leaderBoard && leaderBoard.length > 0 ? (leaderBoard.map((item,index)=>
-                  (<>
-                  <div className="flex items-center justify-around w-full h-full p-4">
-                    <p className="text-xl font-zilla capitalize">{index+1}. {item?.data?.leaderName} </p>
-                    <p className="text-xl font-zilla capitalize">{item?.data?.leaderPosition}</p>
-                  </div>
-                  </>
-                  ))):(<div className="flex items-center justify-around w-full h-full p-4">
-                    <p className="text-xl font-zilla">NO WINNERS WILL SEE IN FUTURE</p>
-                  </div>))}
+                  {loading ? (
+                    <Spinner />
+                  ) : leaderBoard && leaderBoard.length > 0 ? (
+                    leaderBoard.map((item, index) => (
+                      <>
+                        <div className="flex items-center justify-around w-full h-full p-4">
+                          <p className="text-xl font-zilla capitalize">
+                            {index + 1}. {item?.data?.leaderName}{" "}
+                          </p>
+                          <p className="text-xl font-zilla capitalize">
+                            {item?.data?.leaderPosition}
+                          </p>
+                        </div>
+                      </>
+                    ))
+                  ) : (
+                    <div className="flex items-center justify-around w-full h-full p-4">
+                      <p className="text-xl font-zilla">
+                        NO WINNERS WILL SEE IN FUTURE
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
